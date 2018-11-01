@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SORTING ALGORITHMS</title>
+</head>
+
+<body>
+    <h1>Sorting</h1>
+    <h4>Insert numbers separated by a comma</h4>
+    <input type="text" id="input">
+    <button onclick="sort()">SORT</button>
+    <div id="results">
+
+    </div>
+    <script src="./main.js"></script>
+    <script>
+        function sort() {
+            var myArray = document.getElementById("input").value.split(",");
+            var theArray = myArray.map((number) => {
+                return parseInt(number, 10);
+            });
+            console.log(theArray);
+            var node = document.createElement("LI");
+            var bubblenode = document.createTextNode("Bubble Sort: " + bubblesort(theArray) + "  |");
+            var insertionnode = document.createTextNode("Insertion Sort: " + insertionsort(theArray) + "  |");
+            var quicknode = document.createTextNode("Quick Sort: " + quicksort(theArray) + "  |");
+            node.appendChild(bubblenode);
+            node.appendChild(insertionnode);
+            node.appendChild(quicknode);
+
+            document.getElementById("results").appendChild(node);
+
+            console.log("Bubble Sort: " + bubblesort(theArray));
+            console.log("Insertion Sort: " + insertionsort(theArray));
+            console.log("Quick Sort: " + quicksort(theArray));
+        }
+
+    </script>
+</body>
+
+</html>
